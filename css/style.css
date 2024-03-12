@@ -1,5 +1,5 @@
 #logo {
-    /* animation: logoEnlarge 5s 1; */
+    animation: logoEnlarge 5s 1;
     width: 475px;
 }
 @keyframes logoEnlarge {
@@ -35,14 +35,58 @@ a:visited {
     border-top-left-radius: 50px;
 }
 .card {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 450px;
-    width: max-content;
+    flex: 0 1 450px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
 }
 .pricing {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-flow: row wrap;
     justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 0 300px;
+    justify-content: center;
+}
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+@media screen and (min-width: 900px) {
+    body > header {
+        flex-direction: row;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
+    .nav_links {
+        flex-direction: row;
+    }
+    .card {
+        flex: 0 0 275px;
+    }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+@media print {
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+    }
 }
