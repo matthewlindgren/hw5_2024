@@ -89,4 +89,26 @@ a:visited {
         display: flex;
         flex-direction: column;
     }
+    nav {
+        width: 100%;
+    }
+    .nav_links {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+    .pricing {
+        align-items: flex-end;
+        flex-flow: row nowrap;
+    }
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+    #gallery, .gallery {
+        display: none;
+    }
+    .card li:nth-child(2)::after {
+        content: "👍";
+    }
 }
