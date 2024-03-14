@@ -1,53 +1,53 @@
-#logo {
+#logo { /* Logo styling enables animation */
     animation: logoEnlarge 5s 1;
     width: 475px;
 }
-@keyframes logoEnlarge {
-    0% {
-        width: 25px;
-        opacity: 0;
-    } 100% {
-        width: 475px;
+@keyframes logoEnlarge { /* Keyframes to define animation transition */
+    0% { /* Sets the style for the logo on animation start */
+        width: 25px;  /* Initial width of logo is 25px */
+        opacity: 0;  /* Logo is initially invisible */
+    } 100% {  /* Sets the logo style when animation is complete */
+        width: 475px; 
         opacity: 1;
     }
 }
 body {
-    font-family: 'Poppins', serif;
-    background: #f1f1f1 url("../images/concrete_seamless.png") repeat;
+    font-family: 'Poppins', serif;  /* Body uses poppins font, serif as backup */
+    background: #f1f1f1 url("../images/concrete_seamless.png") repeat;  /* background is the repeating image, grey if image not available */
 }
 header {
-    display: flex;
+    display: flex; /* Header is a flex container */
     flex-direction: column;
     align-items: center;
 }
 .nav_links {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Nav links (in nav) are defined by flex */
+    flex-direction: column; /* Nav links are vertical by default */
 }
 a:visited {
-    color: #1404F5;
+    color: #1404F5; /* Makes sure links do not change color after visited */
 }
-.card > header {
+.card > header { /* Price tag area for each of the pricing cards */
     background-color: #288088;
     border: solid 2px #45ADAD;
     padding: 20px 0;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
 }
-.card {
-    flex: 0 1 450px;
-    border-top-right-radius: 50px;
+.card {  /* Each of the cards with product info and plan pricing */
+    flex: 0 1 450px;  /* Cannot grow, can shrink, flex-basis (width) 450 */
+    border-top-right-radius: 50px; /* Curve corders so white is not showing */
     border-top-left-radius: 50px;
 }
-.pricing {
+.pricing {  /* Pricing area that contains all the cards */
     display: flex;
-    flex-flow: row wrap;
-    justify-items: center;
+    flex-flow: row wrap;  /* Wrap by rows, each card should start a new line */
+    justify-items: center; /* Pricing cards should be centered horizontally */
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Pricing items should be centered vertically */
     align-content: center;
 }
-.gallery {
+.gallery {  /* Gallery images at bottom, style doesn't change for breakpoints */
     display: flex;
     flex-flow: row wrap;
     flex: 0 0 300px;
@@ -59,56 +59,57 @@ a:visited {
     width: 300px;
 }
 @media screen and (min-width: 900px) {
-    body > header {
-        flex-direction: row;
-        justify-content: space-between;
-        position: sticky;
+    body > header { /* Top nav and logo bar */
+        flex-direction: row;  /* Display horizontally across page */
+        justify-content: space-between;  /* Spread out logo and nav */
+        position: sticky;  /* Keep header on page when scrolling */
+        /* Set position of bar at top, make above other items */
         top: 0;
         left: 0;
         right: 0;
         z-index: 99;
     }
     .nav_links {
-        flex-direction: row;
+        flex-direction: row; /* Links display in a row */
     }
     .card {
-        flex: 0 0 275px;
+        flex: 0 0 275px; /* Cards cannot shrink or grow, default width 275px */
     }
 }
-@media screen and (prefers-reduced-motion: reduce) {
+@media screen and (prefers-reduced-motion: reduce) { /* Reduced motion enabled */
     #logo {
-        animation: none;
+        animation: none; /* Logo has no animation */
     }
 }
-@media print {
+@media print { /* Print view */
     body {
-        font-family: Arial, Helvetica;
-        background-image: none;
+        font-family: Arial, Helvetica; /* Font is Arial w/ Helvetica backup */
+        background-image: none; /* Background becomes the previous gray */
     }
     header {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Logo and nav is stacked */
     }
     nav {
-        width: 100%;
+        width: 100%; /* nav takes up entire page width */
     }
-    .nav_links {
+    .nav_links { /* nav links spread throughout their width */
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-around;
     }
     .pricing {
-        align-items: flex-end;
-        flex-flow: row nowrap;
+        align-items: flex-end;  /* cards are vertically aligned on bottom */
+        flex-flow: row nowrap;  /* cards are on the same row */
     }
     .card {
         border: 2px solid #45ADDD;
-        flex-basis: 325px;
+        flex-basis: 325px; /* default card width is 325px */
     }
-    #gallery, .gallery {
+    #gallery, .gallery { /* gallery not shown in print mode */
         display: none;
     }
-    .card li:nth-child(2)::after {
-        content: "👍";
+    .card li:nth-child(2)::after { /* after the second card list item */
+        content: "👍"; /* add the thumbs up emoji */
     }
 }
